@@ -1,14 +1,47 @@
-+++
-title = "Use Hugo and GitHub Pages to Build a Personal Website"
-date = 2024-12-28
-description = "A step-by-step guide to using Hugo and GitHub Pages for personal website creation."
-draft = false
+---
+title: "A step-by-step guide to using Hugo and GitHub Pages for personal website creation"
+date: 2024-12-28
+description: ""
+draft: false
+categories: ["Engineering"]
+tags: ["Hugo", "GitHub Pages"]
+author: "Lisa Lin"
 
-+++
+showToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+description: ""
+canonicalURL: "https://lisa06010416.github.io/HugoEngineer/posts/using-hugo-and-github-pages-step-by-step-guide/"
+disableHLJS: true # to disable highlightjs
+disableShare: false
+disableHLJS: false
+hideSummary: false
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+cover:
+    image: "<image path/url>" # image path/url
+    alt: "<alt text>" # alt text
+    caption: "<text>" # display caption under cover
+    relative: false # when using page bundles set this to true
+    hidden: true # only hide on current single page
+editPost:
+    URL: "https://github.com/Lisa06010416/HugoEngineer/tree/master/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+---
+
+
 
 Have you ever wanted to showcase your ideas and projects on a personal website, but the costs of hosting stopped you? Good news: with GitHub Pages and Hugo, you can build your very own website for free! It's simple, powerful, and perfect for sharing your unique voice with the world.
 
-In this post, I’ll guide you through three straightforward steps:
+In this post, I’ll guide you through four straightforward steps:
 
 1. Setting up your site on GitHub Pages
 2. Adding a new post
@@ -31,11 +64,11 @@ Let’s get started and bring your personal website to life!
 #### Init setting
 
 ```
-hugo new site YourSiteName
+hugo new site YourSiteName --format yaml
 cd YourSiteName
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-echo "theme = 'ananke'" >> hugo.toml
+echo "theme: 'ananke'" >> hugo.toml
 
 ```
 
@@ -152,11 +185,11 @@ hugo new content content/posts/my-first-post.md
 
 And Hugo will create a .md file content/posts/your_post_name.md, like below. And make sure you chant the deaft = true to false.
 ```
-+++ 
-date = 2024-12-28T16:13:31+08:00
-draft = false 
-title = 'Use Hugo and Github Page Build Personal Website' 
-+++
+---
+date: 2024-12-28T16:13:31+08:00
+draft: false 
+title: 'Use Hugo and Github Page Build Personal Website' 
+---
 
 (Add your content here ...)
 ```
@@ -180,10 +213,10 @@ git add . && git commit -m 'new hugo content page' -a && git push
 Modify hugo.toml. The baseURL notwork when deploy by github page so ignore it. Change the title if you need.
 
 ```
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Lisa's Engineer World'
-theme = 'ananke'
+baseURL: "https://example.org/"
+languageCode: "en-us"
+title: "My New Hugo Site"
+theme: 'ananke'
 ```
 
 <br/>
@@ -203,10 +236,11 @@ git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
 Change theme setting at hugo.toml:
 
 ```
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Lisa's Engineer World'
-theme = 'PaperMod'
+baseURL: "https://example.org/"
+languageCode: "en-us"
+title: "My New Hugo Site"
+theme:
+  - PaperMod
 ```
 
 Push to your git repo
