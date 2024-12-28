@@ -197,7 +197,7 @@ Here is an example to change the theme to [PaperMod](https://themes.gohugo.io/th
 In most situation like you can download it by git command like:
 
 ```
-git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod --depth=1
+git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
 ```
 
 Change theme setting at hugo.toml:
