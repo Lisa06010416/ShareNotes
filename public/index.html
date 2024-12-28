@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=49471&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -35,10 +35,10 @@
     
 
     
-      <link rel="canonical" href="http://localhost:1313/">
+      <link rel="canonical" href="http://localhost:49471/">
     
 
-    <meta property="og:url" content="http://localhost:1313/">
+    <meta property="og:url" content="http://localhost:49471/">
   <meta property="og:site_name" content="My New Hugo Site">
   <meta property="og:title" content="My New Hugo Site">
   <meta property="og:locale" content="en_us">
@@ -127,7 +127,20 @@
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <p>test 123</p>
+          <h1 id="create-a-site">Create a site</h1>
+<h4 id="install-git-hugo">Install git, hugo</h4>
+<p><a href="https://gohugo.io/installation/">Install Hugo</a> 
+<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install Git</a></p>
+<h4 id="init-setting">Init setting</h4>
+<pre tabindex="0"><code>hugo new site YourSiteName
+cd YourSiteName
+git init
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+echo &#34;theme = &#39;ananke&#39;&#34; &gt;&gt; hugo.toml
+</code></pre><h4 id="enablegithub-pages-and-setting-hugoyaml">Enable GitHub Pages and Setting hugo.yaml</h4>
+<p>Github topbar setting&gt;page and change the source to Action
+![截圖 2024-12-28 下午4.58.30](/Users/linlisa/moew_engineer_world/content/posts/use_hugo_and_githubpage_build_personal_website.assets/截圖 2024-12-28 下午4.58.30.png)</p>
+<p>Create a file .github/workflows/hugo.yaml and paste below Hugo demo setting into the file. Make sure the branch name is align your git repo setting.</p>
         </div>
           <a href="/posts/use_hugo_and_githubpage_build_personal_website/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
@@ -149,7 +162,7 @@
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:49471/" >
     &copy;  My New Hugo Site 2024 
   </a>
     <div><div class="ananke-socials"></div>
