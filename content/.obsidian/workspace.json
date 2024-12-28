@@ -1,0 +1,167 @@
+{
+  "main": {
+    "id": "647f1c2d1bfd25b0",
+    "type": "split",
+    "children": [
+      {
+        "id": "ec33c81e17bc4db4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "337f97bcbbf6d649",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/use_hugo_and_githubpage_build_personal_website.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "use_hugo_and_githubpage_build_personal_website"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f3bb24ab89ceb69c",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3aa8f62e7a445f9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2ea3667141e5a9e7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "027aa72cf7dc012b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c653183c9e56c58d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9013b41b839e89c2",
+    "type": "split",
+    "children": [
+      {
+        "id": "c053f93aaeb0ee4b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dedffa4e1209549a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "posts/use_hugo_and_githubpage_build_personal_website.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for use_hugo_and_githubpage_build_personal_website"
+            }
+          },
+          {
+            "id": "8135276809384a85",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "posts/use_hugo_and_githubpage_build_personal_website.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from use_hugo_and_githubpage_build_personal_website"
+            }
+          },
+          {
+            "id": "e2a21b9354c7709a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a3272d098c76a5f1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "posts/use_hugo_and_githubpage_build_personal_website.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of use_hugo_and_githubpage_build_personal_website"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "337f97bcbbf6d649",
+  "lastOpenFiles": []
+}
