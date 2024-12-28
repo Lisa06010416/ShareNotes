@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://localhost:49471/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
-    <generator>Hugo</generator>
+    <title>Posts on </title>
+    <link>http://localhost:50465/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- 0.140.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Dec 2024 16:13:31 +0800</lastBuildDate>
-    <atom:link href="http://localhost:49471/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:50465/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Use Hugo and Github Page Build Personal Website</title>
-      <link>http://localhost:49471/posts/use_hugo_and_githubpage_build_personal_website/</link>
-      <pubDate>Sat, 28 Dec 2024 16:13:31 +0800</pubDate>
-      <guid>http://localhost:49471/posts/use_hugo_and_githubpage_build_personal_website/</guid>
-      <description>&lt;h1 id=&#34;create-a-site&#34;&gt;Create a site&lt;/h1&gt;&#xA;&lt;h4 id=&#34;install-git-hugo&#34;&gt;Install git, hugo&lt;/h4&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gohugo.io/installation/&#34;&gt;Install Hugo&lt;/a&gt; &#xA;&lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;Install Git&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;init-setting&#34;&gt;Init setting&lt;/h4&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new site YourSiteName&#xA;cd YourSiteName&#xA;git init&#xA;git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke&#xA;echo &amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34; &amp;gt;&amp;gt; hugo.toml&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;enablegithub-pages-and-setting-hugoyaml&#34;&gt;Enable GitHub Pages and Setting hugo.yaml&lt;/h4&gt;&#xA;&lt;p&gt;Github topbar setting&amp;gt;page and change the source to Action&#xA;![截圖 2024-12-28 下午4.58.30](/Users/linlisa/moew_engineer_world/content/posts/use_hugo_and_githubpage_build_personal_website.assets/截圖 2024-12-28 下午4.58.30.png)&lt;/p&gt;&#xA;&lt;p&gt;Create a file .github/workflows/hugo.yaml and paste below Hugo demo setting into the file. Make sure the branch name is align your git repo setting.&lt;/p&gt;</description>
+      <title>Use Hugo and GitHub Pages to Build a Personal Website</title>
+      <link>http://localhost:50465/posts/engineer/</link>
+      <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:50465/posts/engineer/</guid>
+      <description>A step-by-step guide to using Hugo and GitHub Pages for personal website creation.</description>
     </item>
   </channel>
 </rss>

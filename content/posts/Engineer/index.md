@@ -1,19 +1,35 @@
 +++
-
-date = '2024-12-28T16:13:31+08:00'
-
+title = "Use Hugo and GitHub Pages to Build a Personal Website"
+date = 2024-12-28
+description = "A step-by-step guide to using Hugo and GitHub Pages for personal website creation."
 draft = false
-
-title = 'Use Hugo and Github Page Build Personal Website'
 
 +++
 
-# Create a site
+Have you ever wanted to showcase your ideas and projects on a personal website, but the costs of hosting stopped you? Good news: with GitHub Pages and Hugo, you can build your very own website for free! It's simple, powerful, and perfect for sharing your unique voice with the world.
+
+In this post, I’ll guide you through three straightforward steps:
+
+1. Setting up your site on GitHub Pages
+2. Adding a new post
+3. Customizing your site with a new theme
+4. Insert Image to your post
+
+Let’s get started and bring your personal website to life!
+
+> You can see more information on [Hugo](https://gohugo.io/)
+
+# Setting up your site on GitHub Pages
+
 #### Install git, hugo
  [Install Hugo](https://gohugo.io/installation/) 
+
  [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
+<br/>
+
 #### Init setting
+
 ```
 hugo new site YourSiteName
 cd YourSiteName
@@ -23,11 +39,16 @@ echo "theme = 'ananke'" >> hugo.toml
 
 ```
 
+<br/>
+
 #### Enable GitHub Pages and Setting hugo.yaml
+
 Github topbar setting>page and change the source to Action
-![截圖 2024-12-28 下午4.58.30](/Users/linlisa/moew_engineer_world/content/posts/use_hugo_and_githubpage_build_personal_website.assets/截圖 2024-12-28 下午4.58.30.png)
+
+![image1](images/image1.png)
 
 Create a file .github/workflows/hugo.yaml and paste below Hugo demo setting into the file. Make sure the branch name is align your git repo setting.
+
 ```yaml
 
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
@@ -111,17 +132,18 @@ jobs:
 
 ```
 
+<br/>
+
 #### Push change to your git repo
+
 ```
 git add . && git commit -m 'init hugo' -a && git push
 ```
 
-#### View your domain on git action:
-![截圖 2024-12-28 下午4.53.17](/Users/linlisa/moew_engineer_world/content/posts/use_hugo_and_githubpage_build_personal_website.assets/截圖 2024-12-28 下午4.53.17.png)
-
+#### View your domain on git action:![image2](images/image2.png)
 Click the link on deply button and then you can see yourown website at https://yougitname.github.io/...
 
-# Add New Post
+# Adding a new post
 
 Add markdown content
 ```
@@ -149,7 +171,7 @@ Push change to your git repo
 git add . && git commit -m 'new hugo content page' -a && git push
 ```
 
-# Change website style
+# Customizing your site with a new theme
 
 
 
@@ -164,20 +186,57 @@ title = 'Lisa's Engineer World'
 theme = 'ananke'
 ```
 
-
+<br/>
 
 #### Change Theme
 
-Go to [Hugo theme](https://themes.gohugo.io/) and select s style you like and select ont them you like. Click the down load button will see the install instruction.
+Go to [Hugo theme](https://themes.gohugo.io/) and select s style you like and select ont them you like. Click the download button will see the install instruction. 
 
+Here is an example to change the theme to [PaperMod](https://themes.gohugo.io/themes/hugo-papermod/).
 
-
-In most situation like you can download it by git like:
+In most situation like you can download it by git command like:
 
 ```
 git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod --depth=1
 ```
 
+Change theme setting at hugo.toml:
+
+```
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Lisa's Engineer World'
+theme = 'PaperMod'
+```
+
+Push to your git repo
+
+```
+git add . && git commit -m 'change theme' -a && git push
+```
 
 
-Push to repo
+
+# Insert Image to your post
+
+Create sub-directory under the `post/` directory, move your Markdown file into it, and rename the Markdown file to `index.md`.
+
+Put the image you want to display on the website into the same sub-directory under an `images/` folder, as shown below:
+
+```
+- content
+  - post
+    - post dire 
+    	- index.md
+    	- images
+    	  - image1.png
+```
+
+To insert the image in your Markdown file, use the following syntax:
+
+```
+![image1](images/image1.png)
+```
+
+
+
