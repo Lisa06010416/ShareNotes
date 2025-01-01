@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on My New Hugo Site</title>
-    <link>http://localhost:53258/categories/</link>
+    <link>http://localhost:53378/categories/</link>
     <description>Recent content in Categories on My New Hugo Site</description>
     <image>
       <title>My New Hugo Site</title>
-      <url>http://localhost:53258/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:53258/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:53378/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:53378/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.140.1</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:53258/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53378/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Engineering</title>
-      <link>http://localhost:53258/categories/engineering/</link>
+      <link>http://localhost:53378/categories/engineering/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:53258/categories/engineering/</guid>
+      <guid>http://localhost:53378/categories/engineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming Language</title>
-      <link>http://localhost:53258/categories/programming-language/</link>
+      <link>http://localhost:53378/categories/programming-language/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:53258/categories/programming-language/</guid>
+      <guid>http://localhost:53378/categories/programming-language/</guid>
       <description></description>
     </item>
   </channel>
