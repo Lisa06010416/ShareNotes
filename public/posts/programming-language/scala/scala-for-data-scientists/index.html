@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Path of Scala 1: From Beginner to Data Pipeline Mastery - Scala Basics | </title>
+<meta name="keywords" content="Java, Scala">
+<meta name="description" content="In my new role, I am diving into Scala to build robust data pipelines. Previously, my go-to programming languages were Python and Java, both of which served me well for various data-related tasks.
+However, Scala offers unique advantages for building data pipelines, combining the best of functional programming and object-oriented paradigms, along with seamless integration with powerful tools like Apache Spark.
+This tutorial series will begin with a comparison of Python, Java, and Scala, highlighting the distinctive features and strengths of Scala that make it an excellent choice for modern data engineering.">
+<meta name="author" content="Lisa Lin">
+<link rel="canonical" href="https://lisa06010416.github.io/HugoEngineer/posts/programming-language/scala/scala-for-data-scientists">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/programming-language/scala/scala-for-data-scientists/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      The Path of Scala 1: From Beginner to Data Pipeline Mastery - Scala Basics
+    </h1>
+    <div class="post-meta"><span title='2024-12-28 00:00:00 +0000 UTC'>December 28, 2024</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1841 words&nbsp;·&nbsp;Lisa Lin&nbsp;|&nbsp;<a href="https://github.com/Lisa06010416/HugoEngineer/tree/master/content/posts/programming-language/Scala/scala-for-data-scientists/index.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#flow-control">Flow Control</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#scala-vs-java-in-object-and-class">Scala v.s. Java in Object and Class</a></li>
+    <li><a href="#class-vs-object">Class v.s. Object</a></li>
+    <li><a href="#object">Object</a>
+      <ul>
+        <li><a href="#anonymous-function">Anonymous function</a></li>
+      </ul>
+    </li>
+    <li><a href="#interface-and-inherent">Interface and Inherent</a></li>
+    <li><a href="#inherient">Inherient</a></li>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#multiple-inheritance">Multiple Inheritance</a>
+      <ul>
+        <li><a href="#scala-trait">Scala Trait</a></li>
+      </ul>
+    </li>
+    <li><a href="#generics">Generics</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>In my new role, I am diving into Scala to build robust data pipelines. Previously, my go-to programming languages were Python and Java, both of which served me well for various data-related tasks.</p>
+<p>However, Scala offers unique advantages for building data pipelines, combining the best of functional programming and object-oriented paradigms, along with seamless integration with powerful tools like Apache Spark.</p>
+<p>This tutorial series will begin with a comparison of Python, Java, and Scala, highlighting the distinctive features and strengths of Scala that make it an excellent choice for modern data engineering.</p>
+<p>Next I will Introduct the basic of Scala, and if need I will compare rhe difference java and Scala:</p>
+<ul>
+<li>Variables</li>
+<li>Flow Control</li>
+<li>Class and Object</li>
+<li>Interface and Inherent</li>
+<li>Multiple Inheritance - Trait in Scala</li>
+<li>Generics</li>
+</ul>
+<h1 id="comparison-of-java-scala-and-python">Comparison of Java, Scala, and Python<a hidden class="anchor" aria-hidden="true" href="#comparison-of-java-scala-and-python">#</a></h1>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Scala_(programming_language)">Scala Wiki</a>：
+Scala is quite similar to Java but offer greater flexible, making it well-suited for Big Data project.</p>
+<ul>
+<li>Scala source code can be compiled to <a href="https://en.wikipedia.org/wiki/Java_bytecode">Java bytecode</a> and run on a <a href="https://en.wikipedia.org/wiki/Java_virtual_machine">Java virtual machine</a> (JVM).</li>
+<li>Scala provides <a href="https://en.wikipedia.org/wiki/Language_interoperability">language interoperability</a> with <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a> so that libraries written in either language may be referenced directly in Scala or Java code.</li>
+</ul>
+</blockquote>
+<p>Scala has a faster execution speed than Python and is more flexible than Java, making it suitable for big data pipelines that need to be rerun daily or hourly.</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature/Aspect</strong></th>
+          <th><strong>Java</strong></th>
+          <th><strong>Scala</strong></th>
+          <th><strong>Python</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Language Type</strong></td>
+          <td><strong>Compiled, statically typed</strong></td>
+          <td><strong>Compiled, statically typed</strong><!-- raw HTML omitted -->Supports functional and object-oriented programming</td>
+          <td><strong>Interpreted, dynamically typed</strong></td>
+      </tr>
+      <tr>
+          <td><strong>Performance</strong></td>
+          <td><strong>High performance</strong></td>
+          <td><strong>High performance</strong> <!-- raw HTML omitted -->Slightly slower than Java due to functional features.</td>
+          <td><strong>Lower performance</strong></td>
+      </tr>
+      <tr>
+          <td><strong>Flexibility</strong></td>
+          <td><strong>Low</strong></td>
+          <td><strong>Medium</strong></td>
+          <td><strong>High</strong></td>
+      </tr>
+      <tr>
+          <td><strong>Primary Use Cases</strong></td>
+          <td>Enterprise applications, large-scale backend services, Android development</td>
+          <td>Distributed systems, big data (e.g., Spark), applications requiring expressiveness and performance</td>
+          <td>Rapid development, data science, machine learning, scripting automation</td>
+      </tr>
+      <tr>
+          <td><strong>Big Data Support</strong></td>
+          <td>Supports frameworks like Hadoop but requires more boilerplate code</td>
+          <td>Native support for Apache Spark with user-friendly syntax</td>
+          <td>Via libraries like PySpark, with slightly lower performance than Java/Scala</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Compiled v.s. Interpreted</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature</strong></th>
+          <th><strong>Compiled Languages</strong></th>
+          <th><strong>Interpreted Languages</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Execution Speed</strong></td>
+          <td>Fast (precompiled to machine code)</td>
+          <td>Slow (interpreted at runtime)</td>
+      </tr>
+      <tr>
+          <td><strong>Development Speed</strong></td>
+          <td>Slower (requires compilation)</td>
+          <td>Faster (no compilation step)</td>
+      </tr>
+      <tr>
+          <td><strong>Error Detection</strong></td>
+          <td>Errors caught at compile-time</td>
+          <td>Errors detected at runtime</td>
+      </tr>
+      <tr>
+          <td><strong>Portability</strong></td>
+          <td>Platform-dependent (requires recompilation)</td>
+          <td>High (interpreter handles portability)</td>
+      </tr>
+      <tr>
+          <td><strong>Typical Examples</strong></td>
+          <td>C, C++, Java, Scala</td>
+          <td>Python</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Statically Typed v.s. Dynamically Typed</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature</strong></th>
+          <th><strong>Statically Typed</strong></th>
+          <th><strong>Dynamically Typed</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Type Checking</strong></td>
+          <td>At compile-time (types fixed after declaration)</td>
+          <td>At runtime (types can change dynamically)</td>
+      </tr>
+      <tr>
+          <td><strong>Error Detection</strong></td>
+          <td>Caught during compilation</td>
+          <td>Caught during execution</td>
+      </tr>
+      <tr>
+          <td><strong>Performance</strong></td>
+          <td>Faster runtime (no type-checking overhead)</td>
+          <td>Slower runtime (type-checking at runtime)</td>
+      </tr>
+      <tr>
+          <td><strong>Examples</strong></td>
+          <td>C, C++, Java, Scala</td>
+          <td>Python</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="variables">Variables<a hidden class="anchor" aria-hidden="true" href="#variables">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Scala (<code>val</code> and <code>var</code>)</th>
+          <th>Java (<code>final</code> and general variables)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Immutable Constant</strong></td>
+          <td>Uses <code>val</code>, reassignment not allowed.</td>
+          <td>Uses <code>final</code> modifier, value cannot be changed.</td>
+      </tr>
+      <tr>
+          <td><strong>Mutable Variable</strong></td>
+          <td>Uses <code>var</code>, allows reassignment.</td>
+          <td>General variables without <code>final</code> allow reassignment.</td>
+      </tr>
+      <tr>
+          <td><strong>Type Inference</strong></td>
+          <td>Supports type inference, type declaration can be omitted.</td>
+          <td>Requires explicit type declaration (Java 10+ supports <code>var</code>).</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="flow-control">Flow Control<a hidden class="anchor" aria-hidden="true" href="#flow-control">#</a></h2>
+<p>Here show how Scala to do flow control and compare the behavior with Java if need.</p>
+<p><strong>For :</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>i <span style="color:#66d9ef">&lt;-</span> <span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">if</span> i <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  <span style="color:#75715e">// for loop with a condition
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  println<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>  <span style="color:#75715e">// Output: 2 4 6 8 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>i <span style="color:#66d9ef">&lt;-</span> <span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">3</span><span style="color:#f92672">;</span> j <span style="color:#66d9ef">&lt;-</span> <span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  println<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;</span><span style="color:#e6db74">$i</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$j</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// Output: 1 1, 1 2, 2 1, ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> squares <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>i <span style="color:#66d9ef">&lt;-</span> <span style="color:#ae81ff">1</span> to <span style="color:#ae81ff">5</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">yield</span> i <span style="color:#f92672">*</span> i  <span style="color:#75715e">// Yielding a result
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>println<span style="color:#f92672">(</span>squares<span style="color:#f92672">)</span>  <span style="color:#75715e">// output: Vector(1, 4, 9, 16, 25)
+</span></span></span></code></pre></div><p><strong>IF else:</strong></p>
+<p>Scala v.s. Java</p>
+<ul>
+<li>
+<p><strong>Scala</strong>: If-else in scala is a expression which means it can return value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> x <span style="color:#66d9ef">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> result <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Greater&#34;</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;Smaller&#34;</span>
+</span></span><span style="display:flex;"><span>println<span style="color:#f92672">(</span>result<span style="color:#f92672">)</span> <span style="color:#75715e">// Output: Greater
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Java</strong>: In Java  if-else is a statement, can&rsquo;t directly return value</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#a6e22e">String</span> result<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;Greater&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;Smaller&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>While and do while</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#75715e">// while
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> x <span style="color:#66d9ef">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  println<span style="color:#f92672">(</span>x<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  x <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// do while
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> y <span style="color:#66d9ef">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  println<span style="color:#f92672">(</span>y<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  y <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span> <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>y <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><strong>Match and case</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> x <span style="color:#66d9ef">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#66d9ef">match</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> i <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">=&gt;</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Greater&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> i <span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">=&gt;</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Smaller&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">=&gt;</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Zero&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h1 id="class-and-object">Class and Object<a hidden class="anchor" aria-hidden="true" href="#class-and-object">#</a></h1>
+<h2 id="scala-vs-java-in-object-and-class">Scala v.s. Java in Object and Class<a hidden class="anchor" aria-hidden="true" href="#scala-vs-java-in-object-and-class">#</a></h2>
+<p>The difference behavior on object  between Java ans Scala:</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature</strong></th>
+          <th><strong>Scala</strong></th>
+          <th><strong>Java</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Static Members</strong></td>
+          <td><strong>Scala does not have static members</strong>(functions or fields). <!-- raw HTML omitted -->Instead, programmers declare these members in singleton objects.</td>
+          <td>Java defines static members for basic types and fields using the <code>static</code> keyword.</td>
+      </tr>
+      <tr>
+          <td><strong>Primitive vs Reference Types</strong></td>
+          <td>Scala treats everything as objects, including numbers and functions.</td>
+          <td>Java separates primitive types (e.g., <code>boolean</code>, <code>int</code>) from reference types and cannot treat functions as variables.</td>
+      </tr>
+      <tr>
+          <td><strong>Object-Oriented Nature</strong></td>
+          <td>Scala is a purely object-oriented language. This means <em>everything</em> is an object, including numbers and functions.</td>
+          <td>Java is object-oriented but has primitive types and does not treat them as objects.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="class-vs-object">Class v.s. Object<a hidden class="anchor" aria-hidden="true" href="#class-vs-object">#</a></h2>
+<p>A basic object in Scala:</p>
+<ul>
+<li><code>callback: () =&gt; Unit</code> : Input a variable named <code>callback</code>. The <code>:</code> specifies the type of the variable, which is a function. This function is a method that takes no parameters <code>()</code> and has no return value <code>=&gt; Unit</code>.</li>
+<li>In Scala, <code>Unit</code> is similar to <code>void</code> in other programming languages.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#a6e22e">Object</span> <span style="color:#a6e22e">SayHelloPerSec</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> sayHelloPerSceond<span style="color:#f92672">(</span>callback<span style="color:#66d9ef">:</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Unit</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> callback<span style="color:#f92672">();</span> <span style="color:#a6e22e">Thread</span> sleep <span style="color:#ae81ff">1000</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> sayHello<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	    println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello world ...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> main<span style="color:#f92672">(</span>args<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Array</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Sting</span><span style="color:#f92672">])</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		sayHelloPerSceond<span style="color:#f92672">(</span>sayHello<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Object</th>
+          <th>Class</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Object v.s. Class</strong></td>
+          <td>It is a concrete instance of a class, representing things in the real world. It is used to store data and execute methods.<!-- raw HTML omitted --><!-- raw HTML omitted -->In Scala, you can directly declare an <code>object</code>. An <code>object</code> in Scala is a <strong>singleton object</strong>, used to represent a class with only one instance.<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+          <td>Used to define the common characteristics and behaviors of objects. It is just a concept and does not exist concretely. <!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+      </tr>
+      <tr>
+          <td><strong>constructer</strong></td>
+          <td>Can&rsquo;t pass constructer parameter in object<!-- raw HTML omitted --><!-- raw HTML omitted --><strong>object Add</strong></td>
+          <td>Support constructer parameter<!-- raw HTML omitted --><strong>class</strong> <strong>Add</strong>(a: <strong>Double</strong>, b: <strong>Double</strong>)</td>
+      </tr>
+      <tr>
+          <td><strong>static</strong></td>
+          <td>Typically used for static function and constants.<!-- raw HTML omitted --></td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><strong>companion object</strong></td>
+          <td>It can be used as a companion object in conjunction with a <code>class</code>, sharing the same name as the <code>class</code> and mutually accessing each other&rsquo;s <strong>private members</strong>.<!-- raw HTML omitted -->In Scala, there is no <code>static</code> modifier like in Java. Companion objects are <strong>the primary way to implement static methods and constants.</strong><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->In Factory Method provides a unified interface for creating objects.<!-- raw HTML omitted --><!-- raw HTML omitted --></td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="object">Object<a hidden class="anchor" aria-hidden="true" href="#object">#</a></h2>
+<h3 id="anonymous-function">Anonymous function<a hidden class="anchor" aria-hidden="true" href="#anonymous-function">#</a></h3>
+<p><code>() =&gt; println(&quot;Hello world ...&quot;)</code> :</p>
+<p>( ) : Indicates that the function takes no parameters (the input is empty).</p>
+<p><code>=&gt;</code>: Signifies that what follows is an anonymous function (a function without a name).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Scala" data-lang="Scala"><span style="display:flex;"><span><span style="color:#a6e22e">Object</span> <span style="color:#a6e22e">SayHellowPerSec</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">def</span> sayHelloPerSceond<span style="color:#f92672">(</span>callback<span style="color:#66d9ef">:</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Unit</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> callback<span style="color:#f92672">();</span> <span style="color:#a6e22e">Thread</span> sleep <span style="color:#ae81ff">1000</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> main<span style="color:#f92672">(</span>args<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Array</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Sting</span><span style="color:#f92672">])</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		sayHelloPerSceond<span style="color:#f92672">(()</span> <span style="color:#66d9ef">=&gt;</span>  println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello world ...&#34;</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="interface-and-inherent">Interface and Inherent<a hidden class="anchor" aria-hidden="true" href="#interface-and-inherent">#</a></h2>
+<h2 id="inherient">Inherient<a hidden class="anchor" aria-hidden="true" href="#inherient">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> greet<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello from Parent&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> greet<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello from Child&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// must use override
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="abstract">Abstract<a hidden class="anchor" aria-hidden="true" href="#abstract">#</a></h2>
+<p><strong>Java</strong> :Abstract methods must be marked with the <code>abstract</code> keyword.</p>
+<p><strong>Scala</strong>: Abstract methods do not need to be marked with the <code>abstract</code> keyword; as long as the method has no implementation, it is considered abstract.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> makeSound<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#75715e">// Abstract methods，no `abstract`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> makeSound<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Woof!&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="multiple-inheritance">Multiple Inheritance<a hidden class="anchor" aria-hidden="true" href="#multiple-inheritance">#</a></h2>
+<p><strong>Java</strong>：When multiple interfaces have the same <code>default method</code>, the subclass must explicitly choose which method to use; otherwise, the compilation will fail.</p>
+<p><strong>Scala</strong>：Conflicts are resolved using <strong>linearization</strong>, where the method in the rightmost <code>trait</code> overrides the methods from other <code>traits</code>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Scala</th>
+          <th>Java</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Multiple Inheritance</td>
+          <td>Supports multiple <code>traits</code></td>
+          <td>Interfaces support multiple inheritance (Java 8+ supports <code>default</code> methods)</td>
+      </tr>
+      <tr>
+          <td>Visibility <code>protected</code></td>
+          <td>Accessible only by subclasses</td>
+          <td>Accessible by subclasses and classes in the same package</td>
+      </tr>
+      <tr>
+          <td><code>trait</code> Support</td>
+          <td>Supports concrete methods and variables, allows multiple stacking</td>
+          <td>Does not support variables, only supports <code>default</code> methods (Java 8+)</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="scala-trait">Scala Trait<a hidden class="anchor" aria-hidden="true" href="#scala-trait">#</a></h3>
+<ul>
+<li>
+<p><strong>Scala</strong> use Trait support multiple inferitance and <strong>solve diamon inferientance problems</strong></p>
+<p>An example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> sound<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#75715e">// abstract method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">def</span> eat<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eating...&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// concrete method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Swimmer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> swim<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Swimming...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Flyer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> fly<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Flying...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Animal</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">Swimmer</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">Flyer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// implement abstract method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> sound<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Quack Quack&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Main</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">val</span> duck <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Duck</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>  duck<span style="color:#f92672">.</span>sound<span style="color:#f92672">()</span> <span style="color:#75715e">// Quack Quack
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  duck<span style="color:#f92672">.</span>swim<span style="color:#f92672">()</span> <span style="color:#75715e">// Swimming...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  duck<span style="color:#f92672">.</span>fly<span style="color:#f92672">()</span> <span style="color:#75715e">// Flying...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Scala uses the concept of <strong>linearization (Last First)</strong> to resolve conflicts. Even with multiple <code>traits</code>, Scala will flatten them into a single, unique inheritance hierarchy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#a6e22e">The</span> diamond inheritance problem<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">D</span> <span style="color:#66d9ef">might</span> <span style="color:#66d9ef">be</span> <span style="color:#66d9ef">confused</span> <span style="color:#66d9ef">about</span> <span style="color:#66d9ef">which</span> <span style="color:#66d9ef">function</span> <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">inherit</span> <span style="color:#66d9ef">when</span> <span style="color:#66d9ef">B</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">C</span> <span style="color:#66d9ef">have</span> <span style="color:#66d9ef">the</span> <span style="color:#66d9ef">same</span> <span style="color:#66d9ef">function.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">A</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">/</span> \
+</span></span><span style="display:flex;"><span>  B   C
+</span></span><span style="display:flex;"><span>   \ <span style="color:#f92672">/</span>
+</span></span><span style="display:flex;"><span>    D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> sound<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#75715e">// abstract method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">def</span> eat<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eating...&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// concrete method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Swimmer</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> eat<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eating while swimming...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> swim<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Swimming...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Flyer</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> eat<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Eating while flying...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> fly<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Flying...&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Swimmer</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">Flyer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// implement abstract method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> sound<span style="color:#f92672">()</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Quack Quack&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Main</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">val</span> duck <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Duck</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>  duck<span style="color:#f92672">.</span>sound<span style="color:#f92672">()</span> <span style="color:#75715e">// Quack Quack
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  duck<span style="color:#f92672">.</span>eat<span style="color:#f92672">()</span>   <span style="color:#75715e">// Eating while flying... (Last first)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  duck<span style="color:#f92672">.</span>swim<span style="color:#f92672">()</span>  <span style="color:#75715e">// Swimming...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  duck<span style="color:#f92672">.</span>fly<span style="color:#f92672">()</span>   <span style="color:#75715e">// Flying...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="generics">Generics<a hidden class="anchor" aria-hidden="true" href="#generics">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Java</td>
+          <td>* Java programmers adopt <code>Object</code> as the superclass of all objects. <!-- raw HTML omitted -->* This approach is limited: it doesn&rsquo;t support primitive types and requires manual type casting.</td>
+      </tr>
+      <tr>
+          <td>Scala</td>
+          <td>* Scala addresses this issue by allowing the definition of generic classes (and functions).</td>
+      </tr>
+  </tbody>
+</table>
+<p>賦與該變數的初始值是 <code>_</code>，該語法表示預設值。數值型別預設值是0，<code>Boolean</code> 型別是 <code>false</code>， <code>Unit</code> 型別是 <code>()</code> ，所有的物件型別是 <code>null</code>。</p>
+<pre tabindex="0"><code>class Reference[T] {
+  private var contents: T = _
+  def set(value: T) { contents = value }
+  def get: T = contents
+}
+</code></pre><p>Here is an example of generic:</p>
+<ul>
+<li><code>Box[T]</code>: The use of <code>T</code> indicates that the class is generic.</li>
+<li><code>private var contents: T = _</code>: The initial value of this variable is <code>_</code>, which represents the default value for the type <code>T</code>. For numeric types, the default value is <code>0</code>; for <code>Boolean</code>, it is <code>false</code>; for <code>Unit</code>, it is <code>()</code>; and for all object types, it is <code>null</code>.</li>
+<li><code>val intBox = new Box[Int]()</code> : When initializing a <code>Box</code>, you must specify the type parameter <code>T</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Scala" data-lang="Scala"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Box</span><span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">](</span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> content<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Option</span><span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">None</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> contents<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">T</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">_</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> getContent<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">T</span> <span style="color:#f92672">=</span> contents
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> setContent<span style="color:#f92672">(</span>value<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">T</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>contents <span style="color:#66d9ef">=</span> value<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">GenericExample</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> main<span style="color:#f92672">(</span>args<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Array</span><span style="color:#f92672">[</span><span style="color:#66d9ef">String</span><span style="color:#f92672">])</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create an uninitialized Box of Int
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> intBox <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Box</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">]()</span>
+</span></span><span style="display:flex;"><span>    intBox<span style="color:#f92672">.</span>setContent<span style="color:#f92672">(</span><span style="color:#ae81ff">42</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    println<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;Integer Box contains: </span><span style="color:#e6db74">${</span>intBox<span style="color:#f92672">.</span>getContent<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create an uninitialized Box of String
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> stringBox <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Box</span><span style="color:#f92672">[</span><span style="color:#66d9ef">String</span><span style="color:#f92672">]()</span>
+</span></span><span style="display:flex;"><span>    stringBox<span style="color:#f92672">.</span>setContent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Scala Generics&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    println<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;String Box contains: </span><span style="color:#e6db74">${</span>stringBox<span style="color:#f92672">.</span>getContent<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create an uninitialized Box of List
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> listBox <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Box</span><span style="color:#f92672">[</span><span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">]]()</span>
+</span></span><span style="display:flex;"><span>    listBox<span style="color:#f92672">.</span>setContent<span style="color:#f92672">(</span><span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>    println<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;List Box contains: </span><span style="color:#e6db74">${</span>listBox<span style="color:#f92672">.</span>getContent<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Print:</p>
+<pre tabindex="0"><code>Integer Box contains: 42
+String Box contains: Scala Generics
+List Box contains: List(1, 2, 3, 4)
+</code></pre>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/java/">Java</a></li>
+      <li><a href="http://localhost:1313/tags/scala/">Scala</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/using-hugo-and-github-pages-step-by-step-guide/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>A step-by-step guide to using Hugo and GitHub Pages for personal website creation</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/programming-language/untitled/">
+    <span class="title">Next »</span>
+    <br>
+    <span></span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/"></a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
