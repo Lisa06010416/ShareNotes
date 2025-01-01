@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://localhost:1313/</link>
+    <link>http://localhost:53258/</link>
     <description>Recent content on My New Hugo Site</description>
     <image>
       <title>My New Hugo Site</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:53258/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:53258/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.140.1</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53258/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A step-by-step guide to using Hugo and GitHub Pages for personal website creation</title>
-      <link>http://localhost:1313/posts/using-hugo-and-github-pages-step-by-step-guide/</link>
+      <link>http://localhost:53258/posts/using-hugo-and-github-pages-step-by-step-guide/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/using-hugo-and-github-pages-step-by-step-guide/</guid>
+      <guid>http://localhost:53258/posts/using-hugo-and-github-pages-step-by-step-guide/</guid>
       <description>&lt;p&gt;Have you ever wanted to showcase your ideas and projects on a personal website, but the costs of hosting stopped you? Good news: with GitHub Pages and Hugo, you can build your very own website for free! It&amp;rsquo;s simple, powerful, and perfect for sharing your unique voice with the world.&lt;/p&gt;
 &lt;p&gt;In this post, I’ll guide you through four straightforward steps:&lt;/p&gt;
 &lt;ol&gt;
@@ -30,18 +30,18 @@
     </item>
     <item>
       <title>The Path of Scala 1: From Beginner to Data Pipeline Mastery - Scala Basics</title>
-      <link>http://localhost:1313/posts/programming-language/scala/scala-for-data-scientists/</link>
+      <link>http://localhost:53258/posts/programming-language/scala/scala-for-data-scientists/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/programming-language/scala/scala-for-data-scientists/</guid>
+      <guid>http://localhost:53258/posts/programming-language/scala/scala-for-data-scientists/</guid>
       <description>&lt;p&gt;In my new role, I am diving into Scala to build robust data pipelines. Previously, my go-to programming languages were Python and Java, both of which served me well for various data-related tasks.&lt;/p&gt;
 &lt;p&gt;However, Scala offers unique advantages for building data pipelines, combining the best of functional programming and object-oriented paradigms, along with seamless integration with powerful tools like Apache Spark.&lt;/p&gt;
 &lt;p&gt;This tutorial series will begin with a comparison of Python, Java, and Scala, highlighting the distinctive features and strengths of Scala that make it an excellent choice for modern data engineering.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/posts/programming-language/untitled/</link>
+      <link>http://localhost:53258/posts/programming-language/untitled/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/programming-language/untitled/</guid>
+      <guid>http://localhost:53258/posts/programming-language/untitled/</guid>
       <description></description>
     </item>
   </channel>

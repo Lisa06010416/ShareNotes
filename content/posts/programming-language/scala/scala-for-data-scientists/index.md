@@ -13,7 +13,7 @@ draft: false
 hidemeta: false
 comments: false
 description: ""
-canonicalURL: "https://lisa06010416.github.io/HugoEngineer/posts/programming-language/scala/scala-for-data-scientists"
+canonicalURL: "https://lisa06010416.github.io/HugoEngineer/posts/programming-language/scala/scala-for-data-scientists/"
 disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
@@ -62,7 +62,7 @@ Next I will Introduct the basic of Scala, and if need I will compare rhe differe
 >	* Scala source code can be compiled to [Java bytecode](https://en.wikipedia.org/wiki/Java_bytecode) and run on a [Java virtual machine](https://en.wikipedia.org/wiki/Java_virtual_machine) (JVM).
 >	* Scala provides [language interoperability](https://en.wikipedia.org/wiki/Language_interoperability) with [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) so that libraries written in either language may be referenced directly in Scala or Java code.
 
-<br>
+​    <br>
 
 Scala has a faster execution speed than Python and is more flexible than Java, making it suitable for big data pipelines that need to be rerun daily or hourly.
 
@@ -74,7 +74,7 @@ Scala has a faster execution speed than Python and is more flexible than Java, m
 | **Primary Use Cases** | Enterprise applications, large-scale backend services, Android development | Distributed systems, big data (e.g., Spark), applications requiring expressiveness and performance | Rapid development, data science, machine learning, scripting automation |
 | **Big Data Support**  | Supports frameworks like Hadoop but requires more boilerplate code | Native support for Apache Spark with user-friendly syntax    | Via libraries like PySpark, with slightly lower performance than Java/Scala |
 
-<br>
+   <br>
 
 **Compiled v.s. Interpreted**
 
@@ -86,7 +86,7 @@ Scala has a faster execution speed than Python and is more flexible than Java, m
 | **Portability**       | Platform-dependent (requires recompilation) | High (interpreter handles portability) |
 | **Typical Examples**  | C, C++, Java, Scala                         | Python                                 |
 
-<br>
+   <br>
 
 **Statically Typed v.s. Dynamically Typed**
 
@@ -97,7 +97,7 @@ Scala has a faster execution speed than Python and is more flexible than Java, m
 | **Performance**     | Faster runtime (no type-checking overhead)      | Slower runtime (type-checking at runtime) |
 | **Examples**        | C, C++, Java, Scala                             | Python                                    |
 
-<br>
+  <br>
 
 ## Variables
 
@@ -107,7 +107,7 @@ Scala has a faster execution speed than Python and is more flexible than Java, m
 | **Mutable Variable**   | Uses `var`, allows reassignment.                          | General variables without `final` allow reassignment.        |
 | **Type Inference**     | Supports type inference, type declaration can be omitted. | Requires explicit type declaration (Java 10+ supports `var`). |
 
-<br>
+  <br>
 
 ## Flow Control
 
@@ -128,7 +128,7 @@ val squares = for (i <- 1 to 5) yield i * i  // Yielding a result
 println(squares)  // output: Vector(1, 4, 9, 16, 25)
 ```
 
-<br>
+  <br>
 
 **IF else:**
 
@@ -142,8 +142,6 @@ Scala v.s. Java
   println(result) // Output: Greater
   ```
 
-  
-
 * **Java**: In Java  if-else is a statement, can't directly return value
 
   ```scala
@@ -156,7 +154,7 @@ Scala v.s. Java
   }
   ```
 
-<br>
+   <br>
 
 **While and do while**
 
@@ -176,7 +174,7 @@ do {
 } while (y > 0)
 ```
 
-<br>
+  <br>
 
 **Match and case**
 
@@ -201,7 +199,7 @@ The difference behavior on object  between Java ans Scala:
 | **Primitive vs Reference Types** | Scala treats everything as objects, including numbers and functions. | Java separates primitive types (e.g., `boolean`, `int`) from reference types and cannot treat functions as variables. |
 | **Object-Oriented Nature**       | Scala is a purely object-oriented language. This means *everything* is an object, including numbers and functions. | Java is object-oriented but has primitive types and does not treat them as objects. |
 
-<br>
+  <br>
 
 ## Class v.s. Object
 
@@ -224,7 +222,7 @@ Object SayHelloPerSec {
 }
 ```
 
-<br>
+   <br>
 
 |                       | Object                                                       | Class                                                        |
 | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -235,7 +233,7 @@ Object SayHelloPerSec {
 
 
 
-<br>
+   <br>
 
 ## Object
 
@@ -259,7 +257,7 @@ Object SayHellowPerSec {
 }
 ```
 
-<br>
+   <br>
 
 ## Interface and Inherent
 
@@ -276,7 +274,7 @@ class Child extends Parent {
 
 ```
 
-<br>
+​    <br>
 
 ## Abstract
 
@@ -294,7 +292,7 @@ class Dog extends Animal {
 }
 ```
 
-<br>
+​    <br>
 
 ## Multiple Inheritance
 
@@ -308,7 +306,7 @@ class Dog extends Animal {
 | Visibility `protected` | Accessible only by subclasses                                | Accessible by subclasses and classes in the same package     |
 | `trait` Support        | Supports concrete methods and variables, allows multiple stacking | Does not support variables, only supports `default` methods (Java 8+) |
 
-<br>
+​    <br>
 
 ### Scala Trait
 
@@ -383,7 +381,7 @@ class Dog extends Animal {
   
   ```
 
-<br>
+​     <br>
 
 ## Generics
 
@@ -392,7 +390,7 @@ class Dog extends Animal {
 | Java  | * Java programmers adopt `Object` as the superclass of all objects. <br /><br />* This approach is limited: it doesn't support primitive types and requires manual type casting. |
 | Scala | * Scala addresses this issue by allowing the definition of generic classes (and functions). |
 
-<br>
+​     <br>
 
 Here is an example of generic:
 
