@@ -396,16 +396,6 @@ class Dog extends Animal {
 | Java  | * Java programmers adopt `Object` as the superclass of all objects. <br />* This approach is limited: it doesn't support primitive types and requires manual type casting. |
 | Scala | * Scala addresses this issue by allowing the definition of generic classes (and functions). |
 
-賦與該變數的初始值是 `_`，該語法表示預設值。數值型別預設值是0，`Boolean` 型別是 `false`， `Unit` 型別是 `()` ，所有的物件型別是 `null`。
-
-```
-class Reference[T] {
-  private var contents: T = _
-  def set(value: T) { contents = value }
-  def get: T = contents
-}
-```
-
 
 
 Here is an example of generic:
