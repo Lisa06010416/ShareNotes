@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on My New Hugo Site</title>
-    <link>http://localhost:53378/tags/</link>
-    <description>Recent content in Tags on My New Hugo Site</description>
+    <title>Tags on ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
+    <link>http://localhost:51064/ShareNotes/tags/</link>
+    <description>Recent content in Tags on ML &amp; DATA &amp; CODE &amp; CURIOSITY</description>
     <image>
-      <title>My New Hugo Site</title>
-      <url>http://localhost:53378/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:53378/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <title>ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
+      <url>http://localhost:51064/ShareNotes/images/opengraph.png</url>
+      <link>http://localhost:51064/ShareNotes/images/opengraph.png</link>
     </image>
     <generator>Hugo -- 0.140.1</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:53378/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:51064/ShareNotes/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GitHub Pages</title>
-      <link>http://localhost:53378/tags/github-pages/</link>
+      <link>http://localhost:51064/ShareNotes/tags/github-pages/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:53378/tags/github-pages/</guid>
+      <guid>http://localhost:51064/ShareNotes/tags/github-pages/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>http://localhost:53378/tags/hugo/</link>
+      <link>http://localhost:51064/ShareNotes/tags/hugo/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:53378/tags/hugo/</guid>
+      <guid>http://localhost:51064/ShareNotes/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>http://localhost:53378/tags/java/</link>
+      <link>http://localhost:51064/ShareNotes/tags/java/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:53378/tags/java/</guid>
+      <guid>http://localhost:51064/ShareNotes/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Scala</title>
-      <link>http://localhost:53378/tags/scala/</link>
+      <link>http://localhost:51064/ShareNotes/tags/scala/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:53378/tags/scala/</guid>
+      <guid>http://localhost:51064/ShareNotes/tags/scala/</guid>
       <description></description>
     </item>
   </channel>

@@ -1,6 +1,6 @@
-baseURL: "https://example.org/"
+baseURL: "https://lisa06010416.github.io/ShareNotes/"
 languageCode: "en-us"
-title: "My New Hugo Site"
+title: "ML & DATA & CODE & CURIOSITY"
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -13,13 +13,12 @@ minify:
   minifyOutput: true
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  env: production
+  title: ML & DATA & CODE & CURIOSITY
+  description: "Welcome to my blog, where I share curious explorations of ML, data, and code, aiming to learn, exchange ideas, and spark fresh inspiration together!"
+  keywords: [Machine Learning, Data Science, Engineering, AI]
+  author: Lisa-Lin  # author: ["Me", "You"] # multiple authors
+  images: ["images/opengraph.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
@@ -43,11 +42,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "images/favicon/curiousity_head.png"
+    favicon16x16: "images/favicon/curiousity_head.png"
+    favicon32x32: "images/favicon/curiousity_head.png"
+    apple_touch_icon: "images/favicon/curiousity_head.png"
+    safari_pinned_tab: "images/favicon/curiousity_head.png"
 
   label:
     text: "Home"
@@ -71,16 +70,18 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Title: "ML & DATA & CODE & CURIOSITY"
+    Content: "Welcome to my blog, where I share curious explorations of ML, data, and code, aiming to learn, exchange ideas, and spark fresh inspiration together!"
 
   socialIcons:
-    - name: x
-      url: "https://x.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-    - name: github
-      url: "https://github.com/"
+    # - name: x
+    #   url: "https://x.com/"
+    # - name: stackoverflow
+    #   url: "https://stackoverflow.com"
+    # - name: github
+    #   url: "https://github.com/"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/hiiamlisalin/"
 
   analytics:
     google:
@@ -121,10 +122,10 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
-      weight: 30
+  #  - identifier: example
+  #    name: example.org
+  #    url: https://example.org
+  #    weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
