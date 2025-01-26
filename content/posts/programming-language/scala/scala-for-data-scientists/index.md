@@ -438,13 +438,6 @@ public class Main {
 
 ## Generics
 
-|       | Description                                                  |
-| ----- | ------------------------------------------------------------ |
-| Java  | * Java programmers adopt `Object` as the superclass of all objects. <br /><br />* This approach is limited: it doesn't support primitive types and requires manual type casting. |
-| Scala | * Scala addresses this issue by allowing the definition of generic classes (and functions). |
-
-​     <br>
-
 Here is an example of generic:
 
 * `Box[T]`: The use of `T` indicates that the class is generic.
