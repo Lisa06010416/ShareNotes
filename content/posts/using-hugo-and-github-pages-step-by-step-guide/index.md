@@ -13,7 +13,7 @@ draft: false
 hidemeta: false
 comments: false
 description: ""
-canonicalURL: "https://lisa06010416.github.io/HugoEngineer/posts/using-hugo-and-github-pages-step-by-step-guide/"
+canonicalURL: "https://lisa06010416.github.io/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/"
 disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false

@@ -13,7 +13,7 @@ draft: false
 hidemeta: false
 comments: false
 description: ""
-canonicalURL: "https://lisa06010416.github.io/HugoEngineer/posts/programming-language/scala/scala-for-data-scientists/"
+canonicalURL: "https://lisa06010416.github.io/ShareNotes/posts/programming-language/scala/scala-for-data-scientists/"
 disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
@@ -66,11 +66,11 @@ Next I will Introduct the basic of Scala, and if need I will compare rhe differe
 
 Scala has a faster execution speed than Python and is more flexible than Java, making it suitable for big data pipelines that need to be rerun daily or hourly.
 
-| **Feature/Aspect**    | **Java**                                                     | **Scala**                                                    | **Python**                                                   |
-| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Language Type**     | __Compiled, statically typed__                               | __Compiled, statically typed__<br />Supports functional and object-oriented programming | __Interpreted, dynamically typed__                           |
-| **Performance**       | __High performance__                                         | __High performance__ <br />Slightly slower than Java due to functional features. | __Lower performance__                                        |
-| **Flexibility**       | __Low__                                                      | __Medium__                                                   | __High__                                                     |
+| **Feature/Aspect**    |                                                     **Java** | **Scala**                                                    | **Python**                                                   |
+| --------------------- | -----------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Language Type**     |                               __Compiled, statically typed__ | __Compiled, statically typed__<br />Supports functional and object-oriented programming | __Interpreted, dynamically typed__                           |
+| **Performance**       |                                         __High performance__ | __High performance__ <br />Slightly slower than Java due to functional features. | __Lower performance__                                        |
+| **Flexibility**       |                                                      __Low__ | __Medium__                                                   | __High__                                                     |
 | **Primary Use Cases** | Enterprise applications, large-scale backend services, Android development | Distributed systems, big data (e.g., Spark), applications requiring expressiveness and performance | Rapid development, data science, machine learning, scripting automation |
 | **Big Data Support**  | Supports frameworks like Hadoop but requires more boilerplate code | Native support for Apache Spark with user-friendly syntax    | Via libraries like PySpark, with slightly lower performance than Java/Scala |
 
@@ -193,11 +193,10 @@ x match {
 
 The difference behavior on object  between Java ans Scala:
 
-| **Feature**                      | **Scala**                                                    | **Java**                                                     |
-| -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Static Members**               | **Scala does not have static members**(functions or fields). <br />Instead, programmers declare these members in singleton objects. | Java defines static members for basic types and fields using the `static` keyword. |
-| **Primitive vs Reference Types** | Scala treats everything as objects, including numbers and functions. | Java separates primitive types (e.g., `boolean`, `int`) from reference types and cannot treat functions as variables. |
-| **Object-Oriented Nature**       | Scala is a purely object-oriented language. This means *everything* is an object, including numbers and functions. | Java is object-oriented but has primitive types and does not treat them as objects. |
+| **Feature**                | **Scala**                                                    | **Java**                                                     |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Static Members**         | **Scala does not have static members**(functions or fields). <br />Instead, programmers declare these members in singleton objects. | Java defines static members for basic types and fields using the `static` keyword. |
+| **Object-Oriented Nature** | Scala is a purely object-oriented language. This means *everything* is an object, including numbers and functions. | Java separates primitive types (e.g., `boolean`, `int`) from reference types and cannot treat functions as variables. |
 
   <br>
 
@@ -263,6 +262,10 @@ Object SayHellowPerSec {
 
 ## Inherient
 
+ **Java**: Use the `extends` keyword to inherit a class and the `implements` keyword to inherit an interface.
+
+**Scala**:Use the `extends` keyword for both classes and traits (Scala’s equivalent of interfaces with default implementations).
+
 ```scala
 class Parent {
   def greet(): Unit = println("Hello from Parent")
@@ -278,7 +281,8 @@ class Child extends Parent {
 
 ## Abstract
 
-**Java** :Abstract methods must be marked with the `abstract` keyword.
+**Java**:
+An abstract class in Java is defined using the `abstract` keyword. It can have both abstract methods (no implementation) and concrete methods (with implementation).
 
 **Scala**: Abstract methods do not need to be marked with the `abstract` keyword; as long as the method has no implementation, it is considered abstract.
 
@@ -298,7 +302,43 @@ class Dog extends Animal {
 
 **Java**：When multiple interfaces have the same `default method`, the subclass must explicitly choose which method to use; otherwise, the compilation will fail.
 
+```Java
+// Define the first interface with a default method
+interface InterfaceA {
+    default void printMessage() {
+        System.out.println("Message from InterfaceA");
+    }
+}
+
+// Define the second interface without a default method
+interface InterfaceB {
+    void printMessage(); // Only method signature
+}
+
+// Define a class implementing both interfaces
+class MyClass implements InterfaceA, InterfaceB {
+    // No need to override printMessage since only one interface has a default implementation,
+    // but you can override it if desired.
+    
+    // If two interface has default -> need to manully assign: 
+    // e.x InterfaceA.super.printMessage();
+    // e.x InterfaceB.super.printMessage();
+}
+
+// Main method to test
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.printMessage(); // Calls the default method
+    }
+}
+```
+
+
+
 **Scala**：Conflicts are resolved using **linearization**, where the method in the rightmost `trait` overrides the methods from other `traits`.
+
+
 
 | Feature                | Scala                                                        | Java                                                         |
 | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -382,6 +422,19 @@ class Dog extends Animal {
   ```
 
 ​     <br>
+
+
+
+## Trait v.s. Abstract in Scala
+
+| **Feature**                | **Trait**                                                    | **Abstract Class**                                           |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Inheritance**            | Can be mixed into multiple classes (multiple inheritance).   | Only single inheritance is allowed.                          |
+| **Constructor Parameters** | Cannot have constructor parameters.                          | Can have constructor parameters.                             |
+| **Use Case**               | Best for defining reusable behaviors or interfaces.          | Best for shared code across a closely related set of classes. |
+| **Default Implementation** | Can have concrete methods, but fields must be initialized by implementing classes. | Can have concrete methods and initialized fields.            |
+
+
 
 ## Generics
 
