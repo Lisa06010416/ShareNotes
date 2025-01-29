@@ -68,7 +68,7 @@ hugo new site YourSiteName --format yaml
 cd YourSiteName
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-echo "theme: 'ananke'" >> hugo.toml
+echo "theme: 'ananke'" >> config.yaml
 
 ```
 
@@ -173,7 +173,8 @@ jobs:
 git add . && git commit -m 'init hugo' -a && git push
 ```
 
-#### View your domain on git action:![image2](images/image2.png)
+**View your domain on git action:**
+![image2](images/image2.png)
 Click the link on deply button and then you can see yourown website at https://yougitname.github.io/...
 
 # Adding a new post
@@ -210,7 +211,7 @@ git add . && git commit -m 'new hugo content page' -a && git push
 
 #### Change website title 
 
-Modify hugo.toml. The baseURL notwork when deploy by github page so ignore it. Change the title if you need.
+Modify config.yaml. The baseURL notwork when deploy by github page so ignore it. Change the title if you need.
 
 ```
 baseURL: "https://example.org/"
@@ -233,14 +234,13 @@ In most situation like you can download it by git command like:
 git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
 ```
 
-Change theme setting at hugo.toml:
+Change theme setting at config.yaml:
 
 ```
 baseURL: "https://example.org/"
 languageCode: "en-us"
 title: "My New Hugo Site"
-theme:
-  - PaperMod
+theme: PaperMod
 ```
 
 Push to your git repo
