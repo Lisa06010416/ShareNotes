@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:51064/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</loc>
+    <loc>http://localhost:64137/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/categories/</loc>
+    <loc>http://localhost:64137/ShareNotes/categories/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/categories/engineering/</loc>
+    <loc>http://localhost:64137/ShareNotes/categories/engineering/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/tags/github-pages/</loc>
+    <loc>http://localhost:64137/ShareNotes/tags/github-pages/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/tags/hugo/</loc>
+    <loc>http://localhost:64137/ShareNotes/tags/hugo/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/tags/java/</loc>
+    <loc>http://localhost:64137/ShareNotes/tags/java/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/</loc>
+    <loc>http://localhost:64137/ShareNotes/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/posts/</loc>
+    <loc>http://localhost:64137/ShareNotes/posts/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/categories/programming-language/</loc>
+    <loc>http://localhost:64137/ShareNotes/categories/programming-language/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/tags/scala/</loc>
+    <loc>http://localhost:64137/ShareNotes/tags/scala/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/tags/</loc>
+    <loc>http://localhost:64137/ShareNotes/tags/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/posts/programming-language/scala/scala-for-data-scientists/</loc>
+    <loc>http://localhost:64137/ShareNotes/posts/programming-language/scala/scala-for-data-scientists/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:51064/ShareNotes/posts/programming-language/untitled/</loc>
+    <loc>http://localhost:64137/ShareNotes/posts/programming-language/untitled/</loc>
   </url>
 </urlset>

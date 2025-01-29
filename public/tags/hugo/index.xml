@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hugo on ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
-    <link>http://localhost:51064/ShareNotes/tags/hugo/</link>
+    <link>http://localhost:64137/ShareNotes/tags/hugo/</link>
     <description>Recent content in Hugo on ML &amp; DATA &amp; CODE &amp; CURIOSITY</description>
     <image>
       <title>ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
-      <url>http://localhost:51064/ShareNotes/images/opengraph.png</url>
-      <link>http://localhost:51064/ShareNotes/images/opengraph.png</link>
+      <url>http://localhost:64137/ShareNotes/images/opengraph.png</url>
+      <link>http://localhost:64137/ShareNotes/images/opengraph.png</link>
     </image>
     <generator>Hugo -- 0.140.1</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:51064/ShareNotes/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:64137/ShareNotes/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A step-by-step guide to using Hugo and GitHub Pages for personal website creation</title>
-      <link>http://localhost:51064/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</link>
+      <link>http://localhost:64137/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51064/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</guid>
+      <guid>http://localhost:64137/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</guid>
       <description>&lt;p&gt;Have you ever wanted to showcase your ideas and projects on a personal website, but the costs of hosting stopped you? Good news: with GitHub Pages and Hugo, you can build your very own website for free! It&amp;rsquo;s simple, powerful, and perfect for sharing your unique voice with the world.&lt;/p&gt;
 &lt;p&gt;In this post, I’ll guide you through four straightforward steps:&lt;/p&gt;
 &lt;ol&gt;
