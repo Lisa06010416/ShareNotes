@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Data Pipeline on ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
+    <link>http://localhost:52095/ShareNotes/categories/data-pipeline/</link>
+    <description>Recent content in Data Pipeline on ML &amp; DATA &amp; CODE &amp; CURIOSITY</description>
+    <image>
+      <title>ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
+      <url>http://localhost:52095/ShareNotes/images/opengraph.png</url>
+      <link>http://localhost:52095/ShareNotes/images/opengraph.png</link>
+    </image>
+    <generator>Hugo -- 0.140.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:52095/ShareNotes/categories/data-pipeline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apache Airflow Quick start: Installation, Demo DAG, Variables, XComs &amp; Advanced @dag Settings</title>
+      <link>http://localhost:52095/ShareNotes/posts/data-pipeline/airflow/basic-airflow/</link>
+      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52095/ShareNotes/posts/data-pipeline/airflow/basic-airflow/</guid>
+      <description>Apache Airflow from Zero to Hero: Installation, Demo DAG, Variables, XComs &amp;amp; Advanced @dag Settings</description>
+    </item>
+  </channel>
+</rss>

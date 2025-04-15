@@ -85,10 +85,8 @@ params:
 
   analytics:
     google:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "0HsWvRWDrJupl4jAeKy9zVk0NTF6ttkgh2tUxuNON3Y"
     bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
       SiteVerificationTag: "XYZabc"
 
   cover:

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Engineering on ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
-    <link>http://localhost:64137/ShareNotes/categories/engineering/</link>
+    <link>http://localhost:52095/ShareNotes/categories/engineering/</link>
     <description>Recent content in Engineering on ML &amp; DATA &amp; CODE &amp; CURIOSITY</description>
     <image>
       <title>ML &amp; DATA &amp; CODE &amp; CURIOSITY</title>
-      <url>http://localhost:64137/ShareNotes/images/opengraph.png</url>
-      <link>http://localhost:64137/ShareNotes/images/opengraph.png</link>
+      <url>http://localhost:52095/ShareNotes/images/opengraph.png</url>
+      <link>http://localhost:52095/ShareNotes/images/opengraph.png</link>
     </image>
     <generator>Hugo -- 0.140.1</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:64137/ShareNotes/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:52095/ShareNotes/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A step-by-step guide to using Hugo and GitHub Pages for personal website creation</title>
-      <link>http://localhost:64137/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</link>
+      <link>http://localhost:52095/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64137/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</guid>
+      <guid>http://localhost:52095/ShareNotes/posts/using-hugo-and-github-pages-step-by-step-guide/</guid>
       <description>&lt;p&gt;Have you ever wanted to showcase your ideas and projects on a personal website, but the costs of hosting stopped you? Good news: with GitHub Pages and Hugo, you can build your very own website for free! It&amp;rsquo;s simple, powerful, and perfect for sharing your unique voice with the world.&lt;/p&gt;
 &lt;p&gt;In this post, I’ll guide you through four straightforward steps:&lt;/p&gt;
 &lt;ol&gt;
@@ -30,9 +30,9 @@
     </item>
     <item>
       <title>The Path of Scala 1: From Beginner to Data Pipeline Mastery - Scala Basics</title>
-      <link>http://localhost:64137/ShareNotes/posts/programming-language/scala/scala-for-data-scientists/</link>
+      <link>http://localhost:52095/ShareNotes/posts/programming-language/scala/coding-language/basic-coding-language/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64137/ShareNotes/posts/programming-language/scala/scala-for-data-scientists/</guid>
+      <guid>http://localhost:52095/ShareNotes/posts/programming-language/scala/coding-language/basic-coding-language/</guid>
       <description>&lt;p&gt;In my new role, I am diving into Scala to build robust data pipelines. Previously, my go-to programming languages were Python and Java, both of which served me well for various data-related tasks.&lt;/p&gt;
 &lt;p&gt;However, Scala offers unique advantages for building data pipelines, combining the best of functional programming and object-oriented paradigms, along with seamless integration with powerful tools like Apache Spark.&lt;/p&gt;
 &lt;p&gt;This tutorial series will begin with a comparison of Python, Java, and Scala, highlighting the distinctive features and strengths of Scala that make it an excellent choice for modern data engineering.&lt;/p&gt;</description>
