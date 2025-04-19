@@ -447,22 +447,33 @@ println(c.strength)   // 80
 
 ### Multiple inferitance and Diamon inferientance problems
 
-- **Scala** use Trait support multiple inferitance and **solve diamon inferientance problems**. Conflicts are resolved using **linearization**, where the method in the rightmost `trait` overrides the methods from other `traits`.
+The diamond inheritance problem: D might be confused about which function to inherit when B and C have the same function.
+    A
+   / \
+  B   C
+   \ /
+    D
 
-  An example:
+| Feature                                  | Java                                                         | Scala                                                        |
+| ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Does class support multiple inheritance? | ❌ Not supported                                              | ❌ Not supported                                              |
+| Multiple inheritance via interface/trait | ✅ Supports implementing multiple interfaces (Java 8+ supports `default` methods) | ✅ Supports mixing in multiple `traits`, which can contain `val` / `var` / method implementations |
+| How method conflicts are resolved        | ✅ Subclass must explicitly override and specify using `X.super.method()` | ✅ Uses *linearization* rule — the method in the rightmost trait takes precedence |
+
+- **Scala** use Trait support multiple inferitance and **solve diamon inferientance problems**. Conflicts are resolved using **linearization**, where the method in the rightmost `trait` overrides the methods from other `traits`.
 
   ```scala
   trait Animal {
     def sound(): Unit // abstract method
-    def eat(): Unit = println("Eating...") // concrete method
+    def action(): Unit = println("Eating...") // concrete method
   }
   
   trait Swimmer {
-    def swim(): Unit = println("Swimming...")
+    def action(): Unit = println("Swimming...")
   }
   
   trait Flyer {
-    def fly(): Unit = println("Flying...")
+    def action(): Unit = println("Flying...")
   }
   
   class Duck extends Animal with Swimmer with Flyer {
@@ -473,52 +484,61 @@ println(c.strength)   // 80
   object Main extends App {
     val duck = new Duck()
     duck.sound() // Quack Quack
-    duck.swim() // Swimming...
-    duck.fly() // Flying...
+    duck.action() // Flying...
   }
   ```
 
-- Scala uses the concept of **linearization (Last First)** to resolve conflicts. Even with multiple `traits`, Scala will flatten them into a single, unique inheritance hierarchy.
+* Java:
 
-  ```scala
-  The diamond inheritance problem: D might be confused about which function to inherit when B and C have the same function.
-      A
-     / \
-    B   C
-     \ /
-      D
-  
-  trait Animal {
-    def sound(): Unit // abstract method
-    def eat(): Unit = println("Eating...") // concrete method
-  }
-  
-  trait Swimmer extends Animal {
-    override def eat(): Unit = println("Eating while swimming...")
-    def swim(): Unit = println("Swimming...")
-  }
-  
-  trait Flyer extends Animal {
-    override def eat(): Unit = println("Eating while flying...")
-    def fly(): Unit = println("Flying...")
-  }
-  
-  class Duck extends Swimmer with Flyer {
-    // implement abstract method
-    override def sound(): Unit = println("Quack Quack")
-  }
-  
-  object Main extends App {
-    val duck = new Duck()
-    duck.sound() // Quack Quack
-    duck.eat()   // Eating while flying... (Last first)
-    duck.swim()  // Swimming...
-    duck.fly()   // Flying...
-  }
-  
-  ```
+```Java
+interface Animal {
+    void sound(); // abstract method
 
-​     <br>
+    default void action() {
+        System.out.println("Eating...");
+    }
+}
+
+interface Swimmer {
+    default void action() {
+        System.out.println("Swimming...");
+    }
+}
+
+interface Flyer {
+    default void action() {
+        System.out.println("Flying...");
+    }
+}
+
+class Duck implements Animal, Swimmer, Flyer {
+
+    @Override
+    public void sound() {
+        System.out.println("Quack Quack");
+    }
+
+    // Manully solve default method conflict
+    @Override
+    public void action() {
+        // Explicity specify which interface's default to use
+        Flyer.super.action();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Duck duck = new Duck();
+        duck.sound();  // Quack Quack
+        duck.action(); // Flying...
+    }
+}
+
+```
+
+
+
+ <br>
 
 ## Generics
 
