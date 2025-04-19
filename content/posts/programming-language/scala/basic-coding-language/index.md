@@ -1,5 +1,5 @@
 ---
-title: "The Path of Scala 1: From Beginner to Data Pipeline Mastery - Scala Basics"
+title: "Getting Started with Scala: Comparing Its Features with Java"
 date: 2024-12-28
 description: "Java v.s. Scala"
 draft: True
@@ -45,16 +45,9 @@ However, Scala offers unique advantages for building data pipelines, combining t
 
 This tutorial series will begin with a comparison of Python, Java, and Scala, highlighting the distinctive features and strengths of Scala that make it an excellent choice for modern data engineering. 
 
-Next I will Introduct the basic of Scala, and if need I will compare rhe difference java and Scala:
 
-* Variables
-* Flow Control
-* Class and Object
-* Interface and Inherent
-* Multiple Inheritance - Trait in Scala
-* Generics
 
-# Comparison of Java, Scala, and Python
+## Comparison of Java, Scala, and Python
 
 >[Scala Wiki](https://en.wikipedia.org/wiki/Scala_(programming_language))：
 >Scala is quite similar to Java but offer greater flexible, making it well-suited for Big Data project.
@@ -99,7 +92,39 @@ Scala has a faster execution speed than Python and is more flexible than Java, m
 
   <br>
 
-## Variables
+## Scala v.s. Java
+
+The difference behavior on object  between Java ans Scala:
+
+| **Feature**                | **Scala**                                                    | **Java**                                                     |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Object-Oriented Nature** | Scala is a purely object-oriented language. This means *everything* is an object, including numbers and functions. | Java separates primitive types (e.g., `boolean`, `int`) from reference types. Functions are not objects. |
+| **Static Members**         | Scala does not have `static` members. Instead, programmers use **singleton objects** (`object`) to define static-like members. | Java uses the `static` keyword to define class-level fields and methods. |
+| **Type Inference**         | Scala supports **type inference**, allowing the compiler to deduce variable and return types. | Java has limited type inference (e.g., `var` since Java 10), but type declarations are often required. |
+| **Trait v.s. Interface**   | Scala has **traits**, which are like interfaces but can contain method implementations. | Java has **interfaces**, which since Java 8 can have default methods, but no state. |
+| **Generics**               | Scala has a powerful **generic type system**, including variance annotations (`+T`, `-T`). | Java supports generics but lacks some of Scala’s flexibility, and uses type erasure. |
+
+
+
+### Access Modifiers Comparison
+
+| **Modifier**         | **Scala** Description                                        | **Java** Description                                         |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `public`             | Default in Scala. All members are `public` unless specified otherwise. | Must be explicitly declared. Otherwise, default is **package-private**. |
+| `private`            | Accessible **only within the class** where it's defined.     | Accessible **only within the class** where it's defined.     |
+| `private[this]`      | Even stricter – accessible **only within the same object instance**. | No equivalent in Java.                                       |
+| `protected`          | Accessible **only in subclasses**, even outside the package. | Accessible in **subclasses and same-package classes**.       |
+| `protected[package]` | Accessible within a **specific package**.                    | No equivalent in Java.                                       |
+| `private[package]`   | Accessible within a **specific package**, more flexible than plain `private`. | No equivalent in Java.                                       |
+| *(no modifier)*      | No keyword means `public` by default.                        | No keyword means `package-private`: accessible only within the same package. |
+
+
+
+
+
+## Basic Scala Syntax
+
+### Variables
 
 | Feature                | Scala (`val` and `var`)                                   | Java (`final` and general variables)                         |
 | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
@@ -109,7 +134,7 @@ Scala has a faster execution speed than Python and is more flexible than Java, m
 
   <br>
 
-## Flow Control
+### Flow Control
 
 Here show how Scala to do flow control and compare the behavior with Java if need.
 
@@ -187,21 +212,9 @@ x match {
 }
 ```
 
-# Class and Object
 
-## Scala v.s. Java in Object and Class
 
-The difference behavior on object  between Java ans Scala:
-
-| **Feature**                      | **Scala**                                                    | **Java**                                                     |
-| -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Static Members**               | **Scala does not have static members**(functions or fields). <br />Instead, programmers declare these members in singleton objects. | Java defines static members for basic types and fields using the `static` keyword. |
-| **Primitive vs Reference Types** | Scala treats everything as objects, including numbers and functions. | Java separates primitive types (e.g., `boolean`, `int`) from reference types and cannot treat functions as variables. |
-| **Object-Oriented Nature**       | Scala is a purely object-oriented language. This means *everything* is an object, including numbers and functions. | Java is object-oriented but has primitive types and does not treat them as objects. |
-
-  <br>
-
-## Class v.s. Object
+## Class and Object in Scala
 
 A basic object in Scala:
 
@@ -233,11 +246,13 @@ Object SayHelloPerSec {
 
 
 
-   <br>
 
-## Object
 
-### Anonymous function
+## Anonymous function
+
+| **Scala**                                                    | **Java**                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Scala has concise **anonymous function** syntax: `(x: Int) => x + 1` | Java supports **lambda expressions** since Java 8: `(x) -> x + 1`. |
 
 ```() => println("Hello world ...")``` :
 
@@ -259,9 +274,93 @@ Object SayHellowPerSec {
 
    <br>
 
-## Interface and Inherent
+## Inherent and Overwrite
 
-## Inherient
+Java recommended to **use the `@Override` annotation** 
+
+```Java
+class Animal {
+    public void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+```
+
+Scala required to **explicitly mark overridden methods**
+
+```Scala
+class Animal {
+  def makeSound(): Unit = {
+    println("Some sound")
+  }
+}
+class Dog extends Animal {
+  override def makeSound(): Unit = {
+    println("Woof!")
+  }
+}
+```
+
+
+
+## Abstract and Interface
+
+| **Feature**                   | **Java: interface**                              | **Java: abstract class**                                | **Scala: trait**                                             | **Scala: abstract class**                               |
+| ----------------------------- | ------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| Can implement methods         | ✅ Supports `default` methods (Java 8+)           | ✅ Can include full method implementations               | ✅ Supports method implementations                            | ✅ Can include full method implementations               |
+| Can have fields               | ❌ Only allows `public static final` constants    | ✅ Can have instance fields                              | ✅ Can have `val` / `var`, but cannot pass via constructor    | ✅ Can have fields initialized via constructor           |
+| Can have constructor          | ❌ Constructors are not supported                 | ✅ Constructors are allowed                              | ❌ Constructors are not supported                             | ✅ Constructors are allowed                              |
+| Supports multiple inheritance | ✅ Can implement multiple interfaces              | ❌ Can inherit only one abstract class                   | ✅ Can mix in multiple traits (supports multiple inheritance) | ❌ Can inherit only one abstract class                   |
+| Purpose                       | Define behavior contracts and API specifications | Create abstract base classes for shared logic and state | Define behavior and optional logic, flexibly mix into other classes | Create abstract base classes for shared logic and state |
+
+### Abstract
+
+**Java** :Abstract methods must be marked with the `abstract` keyword.
+
+```Java
+abstract class Animal {
+    // Abstract method: no implementation
+    abstract void makeSound();
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+```
+
+
+
+**Scala**: Abstract methods do not need to be marked with the `abstract` keyword; as long as the method has no implementation, it is considered abstract.
+
+```scala
+abstract class Animal {
+  def makeSound(): Unit // Abstract methods，no `abstract`
+}
+
+class Dog extends Animal {
+  override def makeSound(): Unit = println("Woof!")
+}
+```
+
+### Interface
+
+| **Feature**                   | **Scala**                                                    | **Java**                                                     |
+| ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Visibility `protected`        | Accessible only by subclasses                                | Accessible by subclasses and classes in the same package     |
+| Interface with implementation | Use `traits` with concrete methods                           | Use `interface` with `default` methods (since Java 8), but can't have instance fields and state variables. |
+| Multiple inferitance and      | Conflicts are resolved using **linearization**, where the method in the rightmost `trait` overrides the methods from other `traits`. | Conflicts must be **explicitly resolved** in the implementing class using `super<InterfaceName>.method()` syntax if needed |
+
+
 
 ```scala
 class Parent {
@@ -276,41 +375,79 @@ class Child extends Parent {
 
 ​    <br>
 
-## Abstract
-
-**Java** :Abstract methods must be marked with the `abstract` keyword.
-
-**Scala**: Abstract methods do not need to be marked with the `abstract` keyword; as long as the method has no implementation, it is considered abstract.
-
-```scala
-abstract class Animal {
-  def makeSound(): Unit // Abstract methods，no `abstract`
-}
-
-class Dog extends Animal {
-  override def makeSound(): Unit = println("Woof!")
-}
-```
-
-​    <br>
-
-## Multiple Inheritance
+### Trait in Scala
 
 **Java**：When multiple interfaces have the same `default method`, the subclass must explicitly choose which method to use; otherwise, the compilation will fail.
 
-**Scala**：Conflicts are resolved using **linearization**, where the method in the rightmost `trait` overrides the methods from other `traits`.
+* Interfaces **cannot have instance fields** — they can only define constants (`static final`).
+* They **cannot have state variables** — because interfaces are fundamentally designed to define **behavior**, not to **encapsulate state**.
 
-| Feature                | Scala                                                        | Java                                                         |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Multiple Inheritance   | Supports multiple `traits`                                   | Interfaces support multiple inheritance (Java 8+ supports `default` methods) |
-| Visibility `protected` | Accessible only by subclasses                                | Accessible by subclasses and classes in the same package     |
-| `trait` Support        | Supports concrete methods and variables, allows multiple stacking | Does not support variables, only supports `default` methods (Java 8+) |
+Therefore, you **cannot define mutable fields (state)** in interfaces like `A` or `B`, which means you **cannot mix in multiple stateful traits** the way you can in Scala.
 
-​    <br>
+```
+interface Human {
+    default String greet() {
+        return "Hello";
+    }
+    // ❌ Not allowed: int count = 1; (unless it's static final)
+}
 
-### Scala Trait
+interface Soldier {
+    default String battle() {
+        return "Fighting！";
+    }
+}
 
-- **Scala** use Trait support multiple inferitance and **solve diamon inferientance problems**
+class Warrior implements Human, Soldier {}
+
+Warrior c = new Warrior();
+// ✅ Can call default methods
+c.greet(); // "Hello"
+c.battle();  // "Fighting！"
+
+```
+
+
+
+**Scala**：
+
+* Interfaces **can have instance fields** 
+* They **can have state variables** 
+
+```Scala
+trait Human {
+  def greet(): String = "Hello"
+  var count: Int = 1  // ✅ Traits can have mutable state
+}
+
+trait Soldier {
+  def battle(): String = "Fighting!"
+  var strength: Int = 100  // ✅ Another mutable field
+}
+
+class Warrior extends Human with Soldier
+
+val c = new Warrior
+println(c.greet())    // "Hello"
+println(c.battle())   // "Fighting!"
+println(c.count)      // 1
+println(c.strength)   // 100
+
+// ✅ You can modify state variables
+c.count = 2
+c.strength = 80
+println(c.count)      // 2
+println(c.strength)   // 80
+
+```
+
+
+
+   <br>
+
+### Multiple inferitance and Diamon inferientance problems
+
+- **Scala** use Trait support multiple inferitance and **solve diamon inferientance problems**. Conflicts are resolved using **linearization**, where the method in the rightmost `trait` overrides the methods from other `traits`.
 
   An example:
 

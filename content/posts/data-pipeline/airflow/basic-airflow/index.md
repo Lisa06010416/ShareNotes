@@ -30,6 +30,16 @@ editPost:
 
 ---
 
+My current work involves using Airflow to build data pipelines, so I set up a local Airflow environment to get a better grasp of the fundamentals. After all, at work we use a pre-configured environment.
+
+
+
+I noticed that Airflow has many confusing time parameters, so I created a diagram to distinguish them.Here are more of my notes on Airflow, covering its fundamental operational flow, how to install and configure it, and ultimately how to successfully run a DAG. Check it out here:
+
+https://lisa06010416.github.io/ShareNotes/posts/data-pipeline/airflow/basic-airflow/
+
+
+
 ## What is Ariflow
 
 Airflow is a Python-based workflow management tool that schedules, executes, and monitors a series of tasks (workflows), automating and reliably handling data processing or other batch operations.
