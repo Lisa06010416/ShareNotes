@@ -246,7 +246,51 @@ Object SayHelloPerSec {
 
 
 
-### constructor parameters
+### constructor
+
+| **Feature**             | **Java**                                                     | **Scala**                                                    |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Constructor declaration | Defines constructors using methods with the same name as the class | Constructors are defined directly after the class declaration, or using `def this(...)` inside the class body |
+| Primary constructor     | No explicit concept of a "primary constructor"               | Primary constructor is defined as part of the class declaration (parameters go after `class`) |
+| Secondary constructor   | Uses multiple constructors with the same name for overloading | Defined using `def this(...)`; must call the primary constructor or another secondary constructor |
+
+**Java Constructor**
+
+```Java
+public class Car {
+    private int speed;
+    private int length;
+
+    public Car(int speed, int length) {
+        this.speed = speed;
+        this.length = length;
+    }
+
+    public Car(int speed) {
+        this(speed, 0); 
+    }
+}
+
+```
+
+**Scala Constructor**
+
+```Scala
+class Car(val speed: Int, val length: Int) { 
+  // main constructor clarify in class declare
+  println(s"Speed: $speed, Length: $length") 
+
+  // the secondary constructor
+  def this(speed: Int) = this(speed, 0)
+}
+
+```
+
+
+
+
+
+### **Constructor Parameters**
 
 | Syntax                     | Accessible from outside | Usable as a field inside the class   |
 | -------------------------- | ----------------------- | ------------------------------------ |
