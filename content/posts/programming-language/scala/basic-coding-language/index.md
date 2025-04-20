@@ -246,6 +246,30 @@ Object SayHelloPerSec {
 
 
 
+### constructor parameters
+
+| Syntax                     | Accessible from outside | Usable as a field inside the class   |
+| -------------------------- | ----------------------- | ------------------------------------ |
+| `speed: Int`               | ❌ No                    | ✅ Yes, but not a field               |
+| `val speed: Int`           | ✅ Readable              | ✅ Yes, it's a (read-only) field      |
+| `var speed: Int`           | ✅ Readable & writable   | ✅ Yes, it's a mutable field          |
+| `val s = speed` (in class) | ✅ Yes                   | ✅ Yes, it's a manually created field |
+
+```
+class Car(val speed: Int, length: Int) {
+  def printAll(): Unit = {
+    println(speed)   // ✅ OK, `speed` is a val field
+    println(length)  // ✅ OK, `length` is still accessible here, but it's just a constructor parameter
+  }
+
+  def getLength(): Int = {
+    // println(this.length)  // ❌ Error: there's no `length` field in the class
+    length  // ✅ You can return it like this, but it's not a class member field
+  }
+}
+
+```
+
 
 
 ## Anonymous function
@@ -535,8 +559,6 @@ public class Main {
 }
 
 ```
-
-
 
  <br>
 
